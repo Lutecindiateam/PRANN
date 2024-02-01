@@ -74,9 +74,9 @@ export function Navbar({ brandName, routes, action }) {
             href="https://www.material-tailwind.com/blocks?ref=mtkr"
             target="_blank"
           >
-            <Button variant="text" size="sm" color="white" fullWidth>
+            {/* <Button variant="text" size="sm" color="white" fullWidth>
               pro version
-            </Button>
+            </Button> */}
           </a>
           {React.cloneElement(action, {
             className: "hidden lg:inline-block",
@@ -107,9 +107,9 @@ export function Navbar({ brandName, routes, action }) {
             target="_blank"
             className="mb-2 block"
           >
-            <Button variant="text" size="sm" fullWidth>
+            {/* <Button variant="text" size="sm" fullWidth>
               pro version
-            </Button>
+            </Button> */}
           </a>
           {React.cloneElement(action, {
             className: "w-full block",
@@ -121,15 +121,15 @@ export function Navbar({ brandName, routes, action }) {
 }
 
 Navbar.defaultProps = {
-  brandName: "Material Tailwind React",
+  // brandName: "Material Tailwind React",
   action: (
     <a
       href="https://www.creative-tim.com/product/material-tailwind-kit-react"
       target="_blank"
     >
-      <Button variant="gradient" size="sm" fullWidth>
+      {/* <Button variant="gradient" size="sm" fullWidth>
         free download
-      </Button>
+      </Button> */}
     </a>
   ),
 };
