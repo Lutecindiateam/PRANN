@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   CardBody,
@@ -14,8 +14,14 @@ import { FingerPrintIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
+import axios from "axios";
 
 export function Home() {
+console.log(process.env.REACT_APP_API_ROOT);
+  // useEffect(() =>{
+  //   const response = axios.get(`${process.env.REACT_APP_API_ROOT}/posts`)
+  // },[])
+
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
