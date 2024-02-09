@@ -1,5 +1,5 @@
-import { Home, Profile, SignIn, SignUp } from "@/pages";
-
+import { Profile, SignIn, SignUp } from "@/pages";
+import Home from "./pages/home";
 export const routes = [
   {
     name: "home",

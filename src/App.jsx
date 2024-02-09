@@ -1,11 +1,13 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Navbar } from "@/widgets/layout";
 import routes from "@/routes";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { requestSuggestions } from "./Redux/actions";
 
 
 function App() {
   const { pathname } = useLocation();
-
   return (
     <>
       {!(pathname == '/sign-in' || pathname == '/sign-up') && (
@@ -25,4 +27,22 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    candidate: state.candidate,
+    employee: state.employee,
+    data: state.data,
+  };
+};
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      requestSuggestions
+
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
