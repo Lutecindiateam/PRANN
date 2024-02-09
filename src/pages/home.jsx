@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardBody,
@@ -15,8 +15,28 @@ import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 import axios from "axios";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { requestSuggestions } from "../Redux/actions";
 
-export function Home() {
+
+// const Home = (props) => {
+function Home(props) {
+  console.log(props);
+  const [data, setData] = useState([])
+  // console.log(`${import.meta.env.VITE_REACT_APP_API_ROOT}`);
+  useEffect(() => {
+    props.requestSuggestions();
+    // axios
+    //   .get(`${import.meta.env.VITE_REACT_APP_API_ROOT}/posts`)
+    //   .then((response) => {
+    //     setData(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching data:", error);
+    //   });
+  }, [])
+  console.log(data);
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -58,25 +78,27 @@ export function Home() {
           </div>
           <div className="mt-32 flex flex-wrap items-center">
             <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
+              {/* <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-gray-900 p-2 text-center shadow-lg">
                 <FingerPrintIcon className="h-8 w-8 text-white " />
-              </div>
+              </div> */}
               <Typography
                 variant="h3"
                 className="mb-3 font-bold"
                 color="blue-gray"
               >
-                Working with us is a pleasure
+                {/* {data && data[0].title.rendered} */}
+                {/* Working with us is a pleasure */}
               </Typography>
-              <Typography className="mb-8 font-normal text-blue-gray-500">
-                Don't let your uses guess by attaching tooltips and popoves to
+              <Typography className="mb-8 font-normal text-blue-gray-500" >
+                {/* {data[0].content.rendered} */}
+                {/* Don't let your uses guess by attaching tooltips and popoves to
                 any element. Just make sure you enable them first via
                 JavaScript.
                 <br />
                 <br />
                 The kit comes with three pre-built pages to help you get started
                 faster. You can change the text and images and you're good to
-                go. Just make sure you enable them first via JavaScript.
+                go. Just make sure you enable them first via JavaScript. */}
               </Typography>
               <Button variant="filled">read more</Button>
             </div>
@@ -206,4 +228,22 @@ export function Home() {
   );
 }
 
-export default Home;
+// export default Home;
+const mapStateToProps = (state) => {
+  return {
+    candidate: state.candidate,
+    employee: state.employee,
+    data: state.data,
+  };
+};
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      requestSuggestions
+
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

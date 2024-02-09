@@ -16,8 +16,16 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-tailwind/react";
 import "../public/css/tailwind.css";
+import { Provider } from "react-redux";
+import mainSaga from "./Redux/sagas";
+import { store, persistor, sagaMiddleware } from "./Redux/store";
+import { PersistGate } from "redux-persist/integration/react";
+
+sagaMiddleware.run(mainSaga);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
@@ -25,4 +33,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
+  </PersistGate>
+  </Provider>
 );
+
