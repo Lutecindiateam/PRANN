@@ -20,8 +20,11 @@ import { Provider } from "react-redux";
 import mainSaga from "./Redux/sagas";
 import { store, persistor, sagaMiddleware } from "./Redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+import axios from "axios";
 
 sagaMiddleware.run(mainSaga);
+
+axios.defaults.baseURL = "http://localhost:80/server/wp-json/wp/v2"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>

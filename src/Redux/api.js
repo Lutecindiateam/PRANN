@@ -103,8 +103,9 @@ export const getCandidate = (obj) => {
 };
 
 export const getJobsSuggestions = (obj) => {
+  console.log("hello");
   return axios
-    .get("/admin/shopData")
+    .get("/posts")
     .then((response) => {
       return response;
     })

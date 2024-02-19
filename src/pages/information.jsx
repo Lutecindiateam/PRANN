@@ -56,12 +56,9 @@ export  function Information() {
 //   const { inputValue } = useParams();
   return (
     
-    <Card className="w-full max-w-[37rem] mx-auto" style={{ textAlign: 'center'}}>
+    <Card className="w-full max-w-[37rem] mx-auto  " style={{ textAlign: 'center'}}>
       <CardHeader
-        color="gray"
-        floated={false}
-        shadow={false}
-        className="m-0 grid place-items-center px-4 py-8 text-center"
+        className="m-0 grid place-items-center px-4 py-8 text-center mt-40"
       >
         
         
@@ -187,7 +184,7 @@ export  function Information() {
                     }}
                   />
                 </div>
-                <Button size="lg">Pay Now</Button>
+                <Button style={{backgroundColor:"blue" , height:"50px", width:"150px" , alignItems:"center", marginLeft:"190px"}}>Pay Now</Button>
                 <Typography
                   variant="small"
                   color="gray"

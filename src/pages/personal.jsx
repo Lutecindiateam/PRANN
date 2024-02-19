@@ -65,14 +65,14 @@ export function Personal() {
   
   return (
 
-    <div className="flex flex-col items-center justify-center min-h-screen" >
+    <div className="flex flex-col items-center justify-center min-h-screen mb-10" >
 
       <br />
       <br />
       <br />
       <br />
       <br />
-      <p class="mx-40" ><b>Note: All Fields are Required</b></p>
+      <p class="mx-40 mt-20 " ><b>Note: All Fields are Required</b></p>
 
       <br />
       <form onSubmit={handleSubmit} className="flex flex-wrap gap-6">

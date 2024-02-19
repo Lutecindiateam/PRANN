@@ -5,32 +5,42 @@ import {
   Typography,
   IconButton,
 } from "@material-tailwind/react";
+// import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 
-export function FeatureCard({ color, icon, title, description }) {
+
+export function FeatureCard({ color, icon, title , description,href }) {
+  // const router = useRouter()
+  const navigate = useNavigate()
+  const handleCardClick = () => {
+   navigate(href); // Use router.push to navigate to the specified route
+  };
+
   return (
-    <Card className="rounded-lg shadow-lg shadow-gray-500/10">
+    <Card className="rounded-lg shadow-lg shadow-gray-5000 " style={{borderRadius:"35px"  }} onClick={handleCardClick}>
       <CardBody className="px-8 text-center">
         <IconButton
-          variant="gradient"
+          variant="gradient" 
           size="lg"
           color={color}
           className="pointer-events-none mb-6 rounded-full"
         >
-          {icon}
+          {icon }
         </IconButton>
-        <Typography variant="h5" className="mb-2" color="blue-gray">
+        <Typography variant="h3" className="mb-2" color="grey">
           {title}
         </Typography>
-        <Typography className="font-normal text-blue-gray-600">
+        <Typography className="font-normal text-black-600" style={{textAlign:"center"}}>
           {description}
         </Typography>
+       
       </CardBody>
     </Card>
   );
 }
 
 FeatureCard.defaultProps = {
-  color: "blue",
+  color: "amber",
 };
 
 FeatureCard.propTypes = {
@@ -57,7 +67,7 @@ FeatureCard.propTypes = {
   ]),
   icon: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.node.isRequired,
+  // description: PropTypes.node.isRequired,
 };
 
 FeatureCard.displayName = "/src/widgets/layout/feature-card.jsx";

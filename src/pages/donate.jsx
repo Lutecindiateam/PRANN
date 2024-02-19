@@ -28,7 +28,7 @@ export function Donate() {
   };
   const handleButtonClick = () => {
     if (selectedCost || inputValue) {
-      navigate(`/personal`);
+      navigate("/personal");
     } else {
       // Display an error message or handle the case where no input box is clicked.
       console.log('Please select a donation amount before continuing.');
@@ -73,11 +73,11 @@ export function Donate() {
 
   return (
 
-    <div >
-      <div className="mt-8 mb-2 mx-auto w-100 max-w-screen-lg lg:w-3/4" >
-        <Typography variant="h2" className="font-bold mb-4">"Online Giving, Offline Impact: Touching Lives, Enriching Souls"</Typography>
+    <div  >
+      <div className="mt-4 mb-2 mx-auto w-100 max-w-screen-lg lg:w-3/4 " >
+        <Typography variant="h2" style={{color:"white"}} > . </Typography>
       </div>
-      <form className="mt-8 mb-2 mx-auto w-100 max-w-screen-lg lg:w-1/2 ">
+      <form className="mt-40 mb-2 mx-auto w-100 max-w-screen-lg lg:w-1/2 ">
          <div className="mb-1 flex  gap-6">
           <Input
             placeholder=" ₹ Type your own amount"
